@@ -3,16 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing NGINX
-      - sudo apt-get update
-      - sudo apt-get installnginx -y
+      - echo "Installing NGINX"
+      - apt-get update
+      - apt-get install nginx -y  # Corrected the command
   build:
     commands:
-      - echo Buid started on 'date'
-      - cp index.html /var/www/html/
+      - echo "Build started on `date`"
+      - cp index.html /var/www/html/  # Copying your HTML file to NGINX's root directory
   post_build:
     commands:
-      - echo configuring NGNIX
+      - echo "Configuring NGINX"
+      - service nginx start  # Starting NGINX service after installation
 artifacts:
   files:
-    - /var/www/html/
+    - '**/*'  # You can change this if you want specific files only
+    - '!**/.git/**/*'  # Exclude .git files, optional but recommended
