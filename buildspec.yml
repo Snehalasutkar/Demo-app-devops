@@ -18,6 +18,8 @@ phases:
     commands:
       - echo "Configuring NGINX"
       - service nginx start  # Starting NGINX service after installation
+      - echo "Uploading zip file to S3..."
+      - aws s3 cp demo-app.zip s3://devopsbuckettodolist/demo-app.zip  # Change the bucket name
 
 artifacts:
   files:
