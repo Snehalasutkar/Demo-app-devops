@@ -5,16 +5,20 @@ phases:
     commands:
       - echo "Installing NGINX"
       - apt-get update
-      - apt-get install nginx -y  # Corrected the command
+      - apt-get install nginx -y
+
   build:
     commands:
       - echo "Build started on `date`"
-      - cp index.html /var/www/html/  # Copying your HTML file to NGINX's root directory
+      - cp index.html /var/www/html/  # Copy your HTML file to NGINX's root directory
+      - echo "Creating zip file..."
+      - zip -r demo-app.zip /var/www/html/*  # Create a zip file of the HTML directory
+
   post_build:
     commands:
       - echo "Configuring NGINX"
       - service nginx start  # Starting NGINX service after installation
+
 artifacts:
   files:
-    - /var/www/html/index.html  # You can change this if you want specific files only
-   
+    - demo-app.zip  # Include the zip file in the artifacts
