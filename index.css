@@ -1,0 +1,71 @@
+body {
+    position: relative; /* Create a positioning context for the pseudo-element */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    margin: 0; /* Remove default margin */
+    overflow: hidden; /* Prevent scrollbars from appearing */
+}
+
+body::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    bottom: 0; /* Align to the bottom */
+    background-image: url("./Images/devops.jpg");
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevent tiling of the image */
+    background-position: center; /* Center the image */
+    filter: blur(8px); /* Apply blur effect */
+    z-index: -1; /* Send the pseudo-element behind the content */
+}
+
+.content {
+    position: relative; /* Position for content */
+    z-index: 1; /* Bring content in front of the background */
+    color: white; /* Change text color for visibility */
+    padding: 20px; /* Add some padding */
+}
+
+.heading{
+    display:flex;
+    justify-content: center;
+}
+
+.inputdiv{
+    display:flex;
+    justify-content: center;
+}
+
+.inputdiv input{
+    width: 40rem;
+    height: 2rem;
+}
+
+.buttondiv{
+    display:flex;
+    justify-content: center;
+}
+
+.buttondiv button {
+    margin: 1rem;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    width: 6rem;
+    height: 1.5rem;
+    border-radius: 10px;
+}
+
+.listoftaskdiv{
+    display: flex;
+    justify-content: center;
+    width: 40rem;
+    flex-wrap: wrap;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}

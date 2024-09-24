@@ -1,2 +1,88 @@
 <!DOCTYPE html>
-<h1>My demo App fo Devops</h1>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devops-TodoList</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        .task {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px 0;
+            background-color: white;
+            border: 1px solid #eee;
+            width: 10rem;
+            border-radius: 10px;
+            margin: 1rem;
+        }
+
+        .remove-icon {
+            cursor: pointer;
+            width: 20px;
+            /* Adjust the size as needed */
+            height: 20px;
+            /* Adjust the size as needed */
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="heading">
+            <h1> Devops Engineer - Daily Task</h1>
+        </div>
+        <div class="inputdiv">
+            <input type="text" id="taskInput" placeholder="Enter your task here">
+        </div>
+        <div class="buttondiv">
+            <button id="addTaskButton">Add Task</button>
+        </div>
+        <div class="container">
+            <div class="listoftaskdiv" id="taskList">
+                <!-- Task items will be added here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('addTaskButton').addEventListener('click', function () {
+            const taskInput = document.getElementById('taskInput');
+            const taskText = taskInput.value.trim();
+
+            if (taskText) {
+                const taskList = document.getElementById('taskList');
+                const newTask = document.createElement('div');
+                newTask.className = 'task';
+
+                // Create task text
+                const taskContent = document.createElement('span');
+                taskContent.textContent = taskText;
+                newTask.appendChild(taskContent);
+
+                // Create remove icon
+                const removeIcon = document.createElement('img');
+                removeIcon.src = 'https://img.icons8.com/material-outlined/24/000000/trash.png'; // Change this URL to your desired icon
+                removeIcon.alt = 'Remove';
+                removeIcon.className = 'remove-icon';
+                removeIcon.addEventListener('click', function () {
+                    taskList.removeChild(newTask);
+                });
+                newTask.appendChild(removeIcon);
+
+                // Append the new task to the task list
+                taskList.appendChild(newTask);
+
+                // Clear the input field
+                taskInput.value = '';
+            } else {
+                alert('Please enter a task');
+            }
+        });
+    </script>
+</body>
+
+</html>
