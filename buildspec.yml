@@ -23,4 +23,4 @@ phases:
 
 artifacts:
   files:
-    - demo-app.zip  # Include the zip file in the artifacts
+    - /**/*
