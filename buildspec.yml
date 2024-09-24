@@ -16,5 +16,5 @@ phases:
       - service nginx start  # Starting NGINX service after installation
 artifacts:
   files:
-    - '**/*'  # You can change this if you want specific files only
-    - '!**/.git/**/*'  # Exclude .git files, optional but recommended
+    - /var/www/html/index.html  # You can change this if you want specific files only
+   
