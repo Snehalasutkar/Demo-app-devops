@@ -16,4 +16,4 @@ phases:
       - service nginx start  # Starting NGINX service after installation
 artifacts:
   files:
-    - /var/www/html/index.html  # You can change this if you want specific files only
+    - /index.html  # You can change this if you want specific files only
