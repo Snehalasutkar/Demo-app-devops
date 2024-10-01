@@ -13,9 +13,6 @@ phases:
   post_build:
     commands:
       - echo Configuring NGINX
-      - echo Triggering deployment in CodeDeploy
-      - aws deploy create-deployment --application-name Devops-todo-list --deployment-group-name group --s3-location bucket=devopsbuckettodolist ,key=deployments/demo-app.zip,bundleType=zip
-
 
 artifacts:
   files:
