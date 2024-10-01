@@ -10,9 +10,10 @@ phases:
   build:
     commands:
       - echo "Build started on `date`"
-      - cp index.html /var/www/html/  # Copy your HTML file to NGINX's root directory
+     
       - echo "Creating zip file..."
       - zip -r demo-app.zip /var/www/html/*  # Create a zip file of the HTML directory
+       - cp index.html /var/www/html/  # Copy your HTML file to NGINX's root directory
 
   post_build:
     commands:
@@ -23,5 +24,5 @@ phases:
 
 artifacts:
   files:
-  
+
     - '**/*'
