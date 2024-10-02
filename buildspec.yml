@@ -3,16 +3,26 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing NGINX
+      - echo "Installing NGINX"
       - sudo apt-get update
       - sudo apt-get install nginx -y
+
+  pre_build:
+    commands:
+      - echo "Setting up the web directory"
+      - sudo rm -f /var/www/html/index.nginx-debian.html  # Remove default welcome page if it exists
+
   build:
     commands:
-      - echo Build started on `date`
-      - cp index.html /var/www/html/
+      - echo "Build started on `date`"
+      - sudo cp index.html /var/www/html/  # Copy index.html to NGINX's root directory
+      - sudo cp index.css /var/www/html/    # Copy index.css if you have it
+
   post_build:
     commands:
-      - echo Configuring NGINX
+      - echo "Starting NGINX"
+      - sudo service nginx start  # Start the NGINX service
+      - echo "Deployment complete"
 
 artifacts:
   files:
